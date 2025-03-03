@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bnxm5cms0m0qh"]
+[gd_scene load_steps=18 format=4 uid="uid://bnxm5cms0m0qh"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_s8lr7"]
 [ext_resource type="PackedScene" uid="uid://c2i7r7raluutt" path="res://player.tscn" id="2_aawij"]
@@ -1053,8 +1053,14 @@ sources/1 = SubResource("TileSetAtlasSource_oef3f")
 gradient = SubResource("Gradient_tte4h")
 height = 648
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkaef"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8fdy"]
 size = Vector2(64, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpihx"]
+size = Vector2(1142, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkaef"]
+size = Vector2(1152, 64)
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_s8lr7")
@@ -1069,16 +1075,32 @@ position = Vector2(576, 324)
 limit_left = 0
 limit_top = 0
 
-[node name="StaticBody2D" type="AnimatableBody2D" parent="Camera2D"]
+[node name="LeftBorder" type="AnimatableBody2D" parent="Camera2D"]
 position = Vector2(-608, 0)
 collision_mask = 3
 sync_to_physics = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/LeftBorder"]
 visible = false
 texture = SubResource("GradientTexture2D_4rjv6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/LeftBorder"]
+shape = SubResource("RectangleShape2D_a8fdy")
+
+[node name="TopBorder" type="AnimatableBody2D" parent="Camera2D"]
+position = Vector2(0, -352)
+collision_mask = 3
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/TopBorder"]
+shape = SubResource("RectangleShape2D_vpihx")
+
+[node name="BottomBorder" type="AnimatableBody2D" parent="Camera2D"]
+position = Vector2(0, 352)
+collision_mask = 3
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/BottomBorder"]
 shape = SubResource("RectangleShape2D_gkaef")
 
 [node name="Player" parent="." instance=ExtResource("2_aawij")]
