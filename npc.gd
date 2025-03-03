@@ -9,6 +9,6 @@ func _physics_process(delta: float) -> void:
 	
 	super(delta)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if target_player:
 		shoot_vector = (target_player.position - position).limit_length()
