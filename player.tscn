@@ -7,9 +7,8 @@
 [node name="Player" instance=ExtResource("1_hwxd5")]
 script = ExtResource("1_wwbnx")
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = ExtResource("2_yfa76")
-animation = &"run"
-
-[node name="NavigationAgent2D" parent="." index="3"]
+[node name="NavigationAgent2D" parent="." index="0"]
 avoidance_priority = 0.0
+
+[node name="AnimatedSprite2D" parent="." index="4"]
+sprite_frames = ExtResource("2_yfa76")

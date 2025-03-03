@@ -1,5 +1,10 @@
 class_name Player extends ShooterCharacter
 
+
+# Engine
+func _ready() -> void:
+	is_player = true
+
 func _physics_process(delta: float) -> void:
 	if nav.is_target_reached():
 		move_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")

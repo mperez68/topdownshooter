@@ -63,3 +63,7 @@ shoot_down={
 2d_physics/layer_1="Wall"
 2d_physics/layer_2="Characters"
 2d_physics/layer_3="Missiles"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

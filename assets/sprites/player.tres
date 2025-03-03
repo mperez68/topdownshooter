@@ -1,6 +1,11 @@
-[gd_resource type="SpriteFrames" load_steps=19 format=3 uid="uid://0utqf1rriskv"]
+[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://0utqf1rriskv"]
 
+[ext_resource type="Texture2D" uid="uid://u3li5qk83050" path="res://assets/graphics/bloodsmear.png" id="1_4pxeu"]
 [ext_resource type="Texture2D" uid="uid://c825d5dg625a0" path="res://assets/graphics/driver.png" id="1_qwfg5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htctl"]
+atlas = ExtResource("1_4pxeu")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7tevr"]
 atlas = ExtResource("1_qwfg5")
@@ -72,6 +77,14 @@ region = Rect2(80, 19, 19, 18)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htctl")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7tevr")

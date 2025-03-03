@@ -12,23 +12,28 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_km7rs")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
-sprite_frames = ExtResource("2_270qb")
-animation = &"stand"
-autoplay = "stand"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_5t8ig")
-
-[node name="WeaponTimer" type="Timer" parent="."]
-wait_time = 0.25
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 64.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 18.0
 
-[connection signal="timeout" from="WeaponTimer" to="." method="_on_weapon_timer_timeout"]
+[node name="WeaponTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="DeadCleanupTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5t8ig")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_270qb")
+animation = &"stand"
+autoplay = "stand"
+
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="WeaponTimer" to="." method="_on_weapon_timer_timeout"]
+[connection signal="timeout" from="DeadCleanupTimer" to="." method="_on_dead_cleanup_timer_timeout"]
