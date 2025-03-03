@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2i7r7raluutt"]
+
+[ext_resource type="PackedScene" uid="uid://cnb4tcequula" path="res://shooter_character.tscn" id="1_hwxd5"]
+[ext_resource type="Script" path="res://player.gd" id="1_wwbnx"]
+[ext_resource type="SpriteFrames" uid="uid://0utqf1rriskv" path="res://assets/sprites/player.tres" id="2_yfa76"]
+
+[node name="Player" instance=ExtResource("1_hwxd5")]
+script = ExtResource("1_wwbnx")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_yfa76")
+animation = &"run"
+
+[node name="NavigationAgent2D" parent="." index="3"]
+avoidance_priority = 0.0
