@@ -61,6 +61,7 @@ func die():
 	anim.animation = "dead"
 	death_timer.start()
 	coll.set_deferred("disabled", true)
+	nav.avoidance_enabled = false
 
 func is_dead() -> bool:
 	return !death_timer.is_stopped()

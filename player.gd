@@ -11,3 +11,7 @@ func _physics_process(delta: float) -> void:
 		shoot_vector = Input.get_vector("shoot_left", "shoot_right", "shoot_up", "shoot_down").normalized()
 	
 	super(delta)
+
+func _on_dead_cleanup_timer_timeout() -> void:
+	super()
+	get_tree().reload_current_scene()
